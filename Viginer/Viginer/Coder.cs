@@ -15,7 +15,7 @@ namespace Viginer
                                                 '8', '9', '0' };
         private int N = characters.Length;
         /// <summary>
-        /// Метод шифрования
+        /// Метод шифрования 
         /// </summary>
         /// <param name="input">Входная строка</param>
         /// <param name="key">Ключ шифровки</param>
