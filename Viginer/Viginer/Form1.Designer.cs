@@ -32,15 +32,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.NotifyCoder = new System.Windows.Forms.NotifyIcon(this.components);
             this.Tabs = new System.Windows.Forms.TabControl();
-            this.ViginerTab = new System.Windows.Forms.TabPage();
+            this.VigеnerTab = new System.Windows.Forms.TabPage();
             this.Decode = new System.Windows.Forms.Button();
             this.Pseudo = new System.Windows.Forms.RadioButton();
             this.TextForCoderVig = new System.Windows.Forms.RichTextBox();
             this.Standart = new System.Windows.Forms.RadioButton();
             this.KeyTextBox = new System.Windows.Forms.TextBox();
             this.Encode = new System.Windows.Forms.Button();
+            this.HafTab = new System.Windows.Forms.TabPage();
             this.Tabs.SuspendLayout();
-            this.ViginerTab.SuspendLayout();
+            this.VigеnerTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // NotifyCoder
@@ -54,28 +55,29 @@
             this.Tabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Tabs.Controls.Add(this.ViginerTab);
+            this.Tabs.Controls.Add(this.VigеnerTab);
+            this.Tabs.Controls.Add(this.HafTab);
             this.Tabs.Location = new System.Drawing.Point(0, 0);
             this.Tabs.Name = "Tabs";
             this.Tabs.SelectedIndex = 0;
             this.Tabs.Size = new System.Drawing.Size(305, 188);
             this.Tabs.TabIndex = 1;
             // 
-            // ViginerTab
+            // VigеnerTab
             // 
-            this.ViginerTab.BackColor = System.Drawing.Color.PeachPuff;
-            this.ViginerTab.Controls.Add(this.Decode);
-            this.ViginerTab.Controls.Add(this.Pseudo);
-            this.ViginerTab.Controls.Add(this.TextForCoderVig);
-            this.ViginerTab.Controls.Add(this.Standart);
-            this.ViginerTab.Controls.Add(this.KeyTextBox);
-            this.ViginerTab.Controls.Add(this.Encode);
-            this.ViginerTab.Location = new System.Drawing.Point(4, 22);
-            this.ViginerTab.Name = "ViginerTab";
-            this.ViginerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ViginerTab.Size = new System.Drawing.Size(297, 162);
-            this.ViginerTab.TabIndex = 0;
-            this.ViginerTab.Text = "Вижинер";
+            this.VigеnerTab.BackColor = System.Drawing.Color.PeachPuff;
+            this.VigеnerTab.Controls.Add(this.Decode);
+            this.VigеnerTab.Controls.Add(this.Pseudo);
+            this.VigеnerTab.Controls.Add(this.TextForCoderVig);
+            this.VigеnerTab.Controls.Add(this.Standart);
+            this.VigеnerTab.Controls.Add(this.KeyTextBox);
+            this.VigеnerTab.Controls.Add(this.Encode);
+            this.VigеnerTab.Location = new System.Drawing.Point(4, 22);
+            this.VigеnerTab.Name = "VigеnerTab";
+            this.VigеnerTab.Padding = new System.Windows.Forms.Padding(3);
+            this.VigеnerTab.Size = new System.Drawing.Size(297, 162);
+            this.VigеnerTab.TabIndex = 0;
+            this.VigеnerTab.Text = "Виженер";
             // 
             // Decode
             // 
@@ -151,6 +153,16 @@
             this.Encode.UseVisualStyleBackColor = false;
             this.Encode.Click += new System.EventHandler(this.Encode_Click);
             // 
+            // HafTab
+            // 
+            this.HafTab.Location = new System.Drawing.Point(4, 22);
+            this.HafTab.Name = "HafTab";
+            this.HafTab.Padding = new System.Windows.Forms.Padding(3);
+            this.HafTab.Size = new System.Drawing.Size(297, 162);
+            this.HafTab.TabIndex = 1;
+            this.HafTab.Text = "Хафман";
+            this.HafTab.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,8 +173,8 @@
             this.Name = "Form1";
             this.Text = "Кодирование";
             this.Tabs.ResumeLayout(false);
-            this.ViginerTab.ResumeLayout(false);
-            this.ViginerTab.PerformLayout();
+            this.VigеnerTab.ResumeLayout(false);
+            this.VigеnerTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -170,13 +182,14 @@
         #endregion
         private System.Windows.Forms.NotifyIcon NotifyCoder;
         private System.Windows.Forms.TabControl Tabs;
-        private System.Windows.Forms.TabPage ViginerTab;
+        private System.Windows.Forms.TabPage VigеnerTab;
         private System.Windows.Forms.RichTextBox TextForCoderVig;
         private System.Windows.Forms.RadioButton Standart;
         private System.Windows.Forms.TextBox KeyTextBox;
         private System.Windows.Forms.Button Encode;
         private System.Windows.Forms.RadioButton Pseudo;
         private System.Windows.Forms.Button Decode;
+        private System.Windows.Forms.TabPage HafTab;
     }
 }
 
