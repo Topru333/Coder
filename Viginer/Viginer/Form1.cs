@@ -7,26 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace Coders
 {
     public partial class Form1 : Form
     {
+        VigenerCoder v = new VigenerCoder();
+        HaffmanTree h = new HaffmanTree();
         public Form1()
         {
             InitializeComponent();
         }
-
         private void Encode_Click(object sender, EventArgs e)
         {
-            VigenerCoder c = new VigenerCoder();
+            
             string s;
             if (Standart.Checked)
             {
-                if (KeyTextBox.Text.Length > 0)
+                if (KeyVigTextBox.Text.Length > 0)
                 {
                     s = TextForCoderVig.Text;
-                    TextForCoderVig.Text = c.Encode(s, KeyTextBox.Text);
+                    TextForCoderVig.Text = v.Encode(s, KeyVigTextBox.Text);
                     ShowNotifyText("Кодирование по методу Виженера было завершено!:)");
                 }
                 else { MessageBox.Show("Введите ключ"); }
@@ -34,7 +36,7 @@ namespace Coders
             else if(Pseudo.Checked)
             {
                 s = TextForCoderVig.Text;
-                TextForCoderVig.Text = c.Encode(s, c.Generate_Pseudorandom_Key(s.Length, 20));
+                TextForCoderVig.Text = v.Encode(s, v.Generate_Pseudorandom_Key(s.Length, 20));
                 ShowNotifyText("Кодирование по методу Виженера было завершено!:)");
             }
             else { MessageBox.Show("Выберите способ!"); }
@@ -42,14 +44,13 @@ namespace Coders
 
         private void Decode_Click(object sender, EventArgs e)
         {
-            VigenerCoder c = new VigenerCoder();
             string s;
             if(Standart.Checked)
             {
-                if (KeyTextBox.Text.Length > 0)
+                if (KeyVigTextBox.Text.Length > 0)
                 {
                     s = TextForCoderVig.Text;
-                    TextForCoderVig.Text = c.Decode(s, KeyTextBox.Text);
+                    TextForCoderVig.Text = v.Decode(s, KeyVigTextBox.Text);
                     ShowNotifyText("Декодирование по методу Виженера было завершено!:)");
                 }
                 else { MessageBox.Show("Введите ключ"); }
@@ -57,7 +58,7 @@ namespace Coders
             else if (Pseudo.Checked)
             {
                 s = TextForCoderVig.Text;
-                TextForCoderVig.Text = c.Decode(s, c.Generate_Pseudorandom_Key(s.Length, 20));
+                TextForCoderVig.Text = v.Decode(s, v.Generate_Pseudorandom_Key(s.Length, 20));
                 ShowNotifyText("Декодирование по методу Виженера было завершено!:)");
             }
             else { MessageBox.Show("Выберите способ!"); }
@@ -68,11 +69,11 @@ namespace Coders
             RadioButton rb = sender as RadioButton;
             if(rb == Standart)
             {
-                KeyTextBox.Enabled = true;
+                KeyVigTextBox.Enabled = true;
             }
             else if(rb == Pseudo)
             {
-                KeyTextBox.Enabled = false;
+                KeyVigTextBox.Enabled = false;
             }
         }
 
@@ -82,6 +83,36 @@ namespace Coders
             NotifyCoder.ShowBalloonTip(tip);
         }
 
-        
+        private void EncodeHaf_Click(object sender, EventArgs e)
+        {
+            BitArray encoded = h.Encode(TextForCoderHaf.Text);
+            TextForCoderHaf.Text = "";
+            foreach(bool bit in encoded)
+            {
+                TextForCoderHaf.Text += (bit ? 1 : 0).ToString();
+            }
+            ShowNotifyText("Кодирование по методу Хаффмана было завершено!:)");
+        }
+
+        private void DecodeHaf_Click(object sender, EventArgs e)
+        {
+            BitArray encoded;
+            List <bool> l = new List<bool>();
+            foreach(char bit in TextForCoderHaf.Text)
+            {
+                if (bit == '1')
+                {
+                    l.Add(true);
+                }
+                else if(bit == '0')
+                {
+                    l.Add(false);
+                }
+                else { MessageBox.Show("Неверный код"); return; }
+            }
+            encoded = new BitArray(l.ToArray());
+            TextForCoderHaf.Text = h.Decode(encoded);
+            ShowNotifyText("Декодирование по методу Хаффмана было завершено!:)");
+        }
     }
 }

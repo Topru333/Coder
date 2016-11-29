@@ -33,15 +33,19 @@
             this.NotifyCoder = new System.Windows.Forms.NotifyIcon(this.components);
             this.Tabs = new System.Windows.Forms.TabControl();
             this.VigеnerTab = new System.Windows.Forms.TabPage();
-            this.Decode = new System.Windows.Forms.Button();
+            this.DecodeVig = new System.Windows.Forms.Button();
             this.Pseudo = new System.Windows.Forms.RadioButton();
             this.TextForCoderVig = new System.Windows.Forms.RichTextBox();
             this.Standart = new System.Windows.Forms.RadioButton();
-            this.KeyTextBox = new System.Windows.Forms.TextBox();
-            this.Encode = new System.Windows.Forms.Button();
+            this.KeyVigTextBox = new System.Windows.Forms.TextBox();
+            this.EncodeVig = new System.Windows.Forms.Button();
             this.HafTab = new System.Windows.Forms.TabPage();
+            this.DecodeHaf = new System.Windows.Forms.Button();
+            this.TextForCoderHaf = new System.Windows.Forms.RichTextBox();
+            this.EncodeHaf = new System.Windows.Forms.Button();
             this.Tabs.SuspendLayout();
             this.VigеnerTab.SuspendLayout();
+            this.HafTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // NotifyCoder
@@ -66,12 +70,12 @@
             // VigеnerTab
             // 
             this.VigеnerTab.BackColor = System.Drawing.Color.PeachPuff;
-            this.VigеnerTab.Controls.Add(this.Decode);
+            this.VigеnerTab.Controls.Add(this.DecodeVig);
             this.VigеnerTab.Controls.Add(this.Pseudo);
             this.VigеnerTab.Controls.Add(this.TextForCoderVig);
             this.VigеnerTab.Controls.Add(this.Standart);
-            this.VigеnerTab.Controls.Add(this.KeyTextBox);
-            this.VigеnerTab.Controls.Add(this.Encode);
+            this.VigеnerTab.Controls.Add(this.KeyVigTextBox);
+            this.VigеnerTab.Controls.Add(this.EncodeVig);
             this.VigеnerTab.Location = new System.Drawing.Point(4, 22);
             this.VigеnerTab.Name = "VigеnerTab";
             this.VigеnerTab.Padding = new System.Windows.Forms.Padding(3);
@@ -79,17 +83,17 @@
             this.VigеnerTab.TabIndex = 0;
             this.VigеnerTab.Text = "Виженер";
             // 
-            // Decode
+            // DecodeVig
             // 
-            this.Decode.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.Decode.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Decode.Location = new System.Drawing.Point(59, 6);
-            this.Decode.Name = "Decode";
-            this.Decode.Size = new System.Drawing.Size(48, 43);
-            this.Decode.TabIndex = 6;
-            this.Decode.Text = "Расшифров.";
-            this.Decode.UseVisualStyleBackColor = false;
-            this.Decode.Click += new System.EventHandler(this.Decode_Click);
+            this.DecodeVig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.DecodeVig.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DecodeVig.Location = new System.Drawing.Point(57, 6);
+            this.DecodeVig.Name = "DecodeVig";
+            this.DecodeVig.Size = new System.Drawing.Size(48, 43);
+            this.DecodeVig.TabIndex = 6;
+            this.DecodeVig.Text = "Расшифров.";
+            this.DecodeVig.UseVisualStyleBackColor = false;
+            this.DecodeVig.Click += new System.EventHandler(this.Decode_Click);
             // 
             // Pseudo
             // 
@@ -110,9 +114,9 @@
             this.TextForCoderVig.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextForCoderVig.Location = new System.Drawing.Point(8, 55);
+            this.TextForCoderVig.Location = new System.Drawing.Point(3, 55);
             this.TextForCoderVig.Name = "TextForCoderVig";
-            this.TextForCoderVig.Size = new System.Drawing.Size(281, 96);
+            this.TextForCoderVig.Size = new System.Drawing.Size(291, 101);
             this.TextForCoderVig.TabIndex = 4;
             this.TextForCoderVig.Text = "Текст";
             // 
@@ -130,43 +134,83 @@
             this.Standart.UseVisualStyleBackColor = true;
             this.Standart.CheckedChanged += new System.EventHandler(this.Standart_CheckedChanged);
             // 
-            // KeyTextBox
+            // KeyVigTextBox
             // 
-            this.KeyTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.KeyVigTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.KeyTextBox.Location = new System.Drawing.Point(113, 6);
-            this.KeyTextBox.Name = "KeyTextBox";
-            this.KeyTextBox.Size = new System.Drawing.Size(176, 20);
-            this.KeyTextBox.TabIndex = 2;
-            this.KeyTextBox.Text = "Ключ";
+            this.KeyVigTextBox.Location = new System.Drawing.Point(113, 6);
+            this.KeyVigTextBox.Name = "KeyVigTextBox";
+            this.KeyVigTextBox.Size = new System.Drawing.Size(178, 20);
+            this.KeyVigTextBox.TabIndex = 2;
+            this.KeyVigTextBox.Text = "Ключ";
             // 
-            // Encode
+            // EncodeVig
             // 
-            this.Encode.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.Encode.Font = new System.Drawing.Font("Mishmash BRK", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Encode.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Encode.Location = new System.Drawing.Point(8, 6);
-            this.Encode.Name = "Encode";
-            this.Encode.Size = new System.Drawing.Size(48, 43);
-            this.Encode.TabIndex = 0;
-            this.Encode.Text = "Зашифров.";
-            this.Encode.UseVisualStyleBackColor = false;
-            this.Encode.Click += new System.EventHandler(this.Encode_Click);
+            this.EncodeVig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.EncodeVig.Font = new System.Drawing.Font("Mishmash BRK", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EncodeVig.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.EncodeVig.Location = new System.Drawing.Point(3, 6);
+            this.EncodeVig.Name = "EncodeVig";
+            this.EncodeVig.Size = new System.Drawing.Size(48, 43);
+            this.EncodeVig.TabIndex = 0;
+            this.EncodeVig.Text = "Зашифров.";
+            this.EncodeVig.UseVisualStyleBackColor = false;
+            this.EncodeVig.Click += new System.EventHandler(this.Encode_Click);
             // 
             // HafTab
             // 
+            this.HafTab.BackColor = System.Drawing.Color.NavajoWhite;
+            this.HafTab.Controls.Add(this.DecodeHaf);
+            this.HafTab.Controls.Add(this.TextForCoderHaf);
+            this.HafTab.Controls.Add(this.EncodeHaf);
             this.HafTab.Location = new System.Drawing.Point(4, 22);
             this.HafTab.Name = "HafTab";
             this.HafTab.Padding = new System.Windows.Forms.Padding(3);
             this.HafTab.Size = new System.Drawing.Size(297, 162);
             this.HafTab.TabIndex = 1;
-            this.HafTab.Text = "Хафман";
-            this.HafTab.UseVisualStyleBackColor = true;
+            this.HafTab.Text = "Хаффман";
+            // 
+            // DecodeHaf
+            // 
+            this.DecodeHaf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.DecodeHaf.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DecodeHaf.Location = new System.Drawing.Point(57, 6);
+            this.DecodeHaf.Name = "DecodeHaf";
+            this.DecodeHaf.Size = new System.Drawing.Size(48, 43);
+            this.DecodeHaf.TabIndex = 12;
+            this.DecodeHaf.Text = "Расшифров.";
+            this.DecodeHaf.UseVisualStyleBackColor = false;
+            this.DecodeHaf.Click += new System.EventHandler(this.DecodeHaf_Click);
+            // 
+            // TextForCoderHaf
+            // 
+            this.TextForCoderHaf.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextForCoderHaf.Location = new System.Drawing.Point(3, 55);
+            this.TextForCoderHaf.Name = "TextForCoderHaf";
+            this.TextForCoderHaf.Size = new System.Drawing.Size(291, 101);
+            this.TextForCoderHaf.TabIndex = 10;
+            this.TextForCoderHaf.Text = "Текст";
+            // 
+            // EncodeHaf
+            // 
+            this.EncodeHaf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.EncodeHaf.Font = new System.Drawing.Font("Mishmash BRK", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EncodeHaf.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.EncodeHaf.Location = new System.Drawing.Point(3, 6);
+            this.EncodeHaf.Name = "EncodeHaf";
+            this.EncodeHaf.Size = new System.Drawing.Size(48, 43);
+            this.EncodeHaf.TabIndex = 7;
+            this.EncodeHaf.Text = "Зашифров.";
+            this.EncodeHaf.UseVisualStyleBackColor = false;
+            this.EncodeHaf.Click += new System.EventHandler(this.EncodeHaf_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AntiqueWhite;
             this.ClientSize = new System.Drawing.Size(305, 188);
             this.Controls.Add(this.Tabs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -175,6 +219,7 @@
             this.Tabs.ResumeLayout(false);
             this.VigеnerTab.ResumeLayout(false);
             this.VigеnerTab.PerformLayout();
+            this.HafTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -185,11 +230,14 @@
         private System.Windows.Forms.TabPage VigеnerTab;
         private System.Windows.Forms.RichTextBox TextForCoderVig;
         private System.Windows.Forms.RadioButton Standart;
-        private System.Windows.Forms.TextBox KeyTextBox;
-        private System.Windows.Forms.Button Encode;
+        private System.Windows.Forms.TextBox KeyVigTextBox;
+        private System.Windows.Forms.Button EncodeVig;
         private System.Windows.Forms.RadioButton Pseudo;
-        private System.Windows.Forms.Button Decode;
+        private System.Windows.Forms.Button DecodeVig;
         private System.Windows.Forms.TabPage HafTab;
+        private System.Windows.Forms.Button DecodeHaf;
+        private System.Windows.Forms.RichTextBox TextForCoderHaf;
+        private System.Windows.Forms.Button EncodeHaf;
     }
 }
 
