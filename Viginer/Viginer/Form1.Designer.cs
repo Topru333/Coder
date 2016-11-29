@@ -1,4 +1,4 @@
-﻿namespace Viginer
+﻿namespace Coders
 {
     partial class Form1
     {
