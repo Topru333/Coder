@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Coders
 {
-    class Coder
+    class ViginerCoder
     {
         private static char[] characters = new char[] { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И',
                                                 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С',

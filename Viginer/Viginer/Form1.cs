@@ -19,7 +19,7 @@ namespace Coders
 
         private void Encode_Click(object sender, EventArgs e)
         {
-            Coder c = new Coder();
+            ViginerCoder c = new ViginerCoder();
             string s;
             if (Standart.Checked)
             {
@@ -42,7 +42,7 @@ namespace Coders
 
         private void Decode_Click(object sender, EventArgs e)
         {
-            Coder c = new Coder();
+            ViginerCoder c = new ViginerCoder();
             string s;
             if(Standart.Checked)
             {
