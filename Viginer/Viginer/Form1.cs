@@ -97,20 +97,20 @@ namespace Coders
         private void DecodeHaf_Click(object sender, EventArgs e)
         {
             BitArray encoded;
-            List <bool> l = new List<bool>();
+            List <bool> bits = new List<bool>();
             foreach(char bit in TextForCoderHaf.Text)
             {
                 if (bit == '1')
                 {
-                    l.Add(true);
+                    bits.Add(true);
                 }
                 else if(bit == '0')
                 {
-                    l.Add(false);
+                    bits.Add(false);
                 }
                 else { MessageBox.Show("Неверный код"); return; }
             }
-            encoded = new BitArray(l.ToArray());
+            encoded = new BitArray(bits.ToArray());
             TextForCoderHaf.Text = h.Decode(encoded);
             ShowNotifyText("Декодирование по методу Хаффмана было завершено!:)");
         }
